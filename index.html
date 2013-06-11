@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+              padding-top: 60px;
+              padding-bottom: 40px;
+            }
+
+            .main {
+              width: 800px;
+              margin: 0 auto;
+            }
+
+            p {
+              margin: 0 0 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/prettify.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+
+        <div class="main">
+          <div style="text-align: center; margin-bottom: 50px">
+            <h1>duplication.js &mdash; Javascript TDD utility</h1>
+            <h2>(Test-Driven Duplication)</h2>
+          </div>
+
+          <p>
+            <strong>duplication.js</strong> is a utility for building Javascript applications using the TDD methodology as practised by many agile teams. It tests whether code adheres to an (opinionated) specification, giving you the confidence that your code keeps working.
+          </p>
+
+          <div style="overflow: hidden">
+            <h3>Example</h3>
+            <div style="float: left; width: 390px">
+              Test specification <em style="float: right">tests/ellipsis_spec.js</em>
+              <pre class="prettyprint lang-js">
+var ellipsis = function(str, length) {
+  length = length || 100;
+  if (str.length <= length) return str;
+  return str.substring(0, length-3) + '...';
+};</pre>
+            </div>
+            <div style="float: left; width: 390px; margin-left: 20px">
+              Implementation <em style="float: right">src/ellipsis.js</em>
+              <pre class="prettyprint">
+var ellipsis = function(str, length) {
+  length = length || 100;
+  if (str.length <= length) return str;
+  return str.substring(0, length-3) + '...';
+};</pre>
+            </div>
+          </div>
+
+          <h3>Usage</h3>
+          <p>
+            First run <code>npm install uglify-js</code> in the application directory to install uglify-js. Then simply run <code>./duplication.sh src tests</code> to run the tests, either manually or as part of a continuous integration setup. Download the script <a href="duplication.sh">here.</a>
+          </p>
+
+          <h3>Advantages</h3>
+          <p>
+            <strong>Ease of use.</strong> Most testing frameworks are overly complicated, making you write your tests in a format different from the actual implementation. duplication.js allows you to write the test in the same format as the implementation, which is much easier to write, and thus results in less bugs. With duplication.js you get all the benefits of a modern testing framework without the hassle.
+          </p>
+
+          <p>
+            <strong>TDD methodology.</strong> We encourage using the TDD methodology:
+            <ol style="margin-top: -10px">
+              <li><span style="color: red">Red</span> &mdash; Write a specification on how the code should work, by implementing a working version. Verify that the test fails.</li>
+              <li><span style="color: green">Green</span> &mdash; Implement the actual code. Verify that the test succeeds.</li>
+              <li><span style="color: blue">Refactor</span> &mdash; Refactor the code to improve readability, performance, etc.</li>
+            </ol>
+
+            When refactoring the code you should also refactor the test, in order to make it more readable and such.
+          </p>
+
+          <p>
+            <strong>Refactor with confidence.</strong> Since we use uglify.js to compile both sources and tests, you can easily refactor your code, knowing that your test coverage is always 100%. Changing variable names, improving whitespace formatting: these operations are most useful to improving code quality, and are therefore encouraged by duplication.js.
+          </p>
+
+          <p>
+            <strong>Superior performance.</strong> The method we employ to verify that the source matches the tests is much faster than traditional models that are based on code execution, while at the same time guaranteeing a perfect coverage rate.
+          </p>
+
+          <p>
+            <strong>Extensive language support.</strong> duplication.js supports testing of a wide variety of techniques, including asynchronous loading, Ajax calls, promises, WebGL, and infinite loops. It is even compatible with the widely used test scaffolding tool <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?cp">cp</a>.
+          </p>
+
+          <div style="text-align: center; margin-top: 30px; margin-bottom: -20px">
+            Satire brought to you by <a href="http://janpaulposma.nl">Jan Paul Posma</a>. Check out <a href="http://jsdares.com">jsdares</a> to learn real stuff.
+          </div>
+        </div>
+
+        <script src="js/vendor/run_prettify.js"></script>
+    </body>
+</html>
