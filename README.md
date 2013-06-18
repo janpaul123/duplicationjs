@@ -1,1 +1,1 @@
-Please see http://janpaul123.github.io/duplicationjs/
+Please see http://janpaulposma.nl/duplicationjs/
